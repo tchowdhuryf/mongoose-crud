@@ -6,6 +6,10 @@ const conn = require("./config/db");
 conn();
 const starterFruits = require("./config/seed");
 const Fruit = require("./models/fruit");
+const fruitRoutes = require("./routes/fruitRoutes");
+
+//middleware
+app.use("/api/fruits", fruitRoutes);
 
 //home route
 app.get("/", (req, res) => {
