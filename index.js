@@ -9,7 +9,9 @@ const Fruit = require("./models/fruit");
 const fruitRoutes = require("./routes/fruitRoutes");
 
 //middleware
+app.use(express.json());
 app.use("/api/fruits", fruitRoutes);
+
 
 //home route
 app.get("/", (req, res) => {

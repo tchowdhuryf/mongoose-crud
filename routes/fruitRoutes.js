@@ -12,4 +12,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+//create a new fruit
+router.post("/", async (req, res) => {
+  try {
+    const createdFruit = await Fruit.create(req.body);
+    console.log(req.body);
+    res.json(createdFruit);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = router;
