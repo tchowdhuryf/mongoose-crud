@@ -34,12 +34,12 @@ router.get("/:id", async (req, res) => {
 
 //edit route
 router.put("/:id", async (req, res) => {
-    try {
-      const updatedFruit = await Fruit.findByIdAndUpdate(req.params.id, req.body);
-    //   res.json(updatedFruit);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  });
+  try {
+    const updatedFruit = await Fruit.findByIdAndUpdate(req.params.id, req.body);
+    res.json(updatedFruit);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 module.exports = router;
